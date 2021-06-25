@@ -38,11 +38,14 @@ def app():
     mask_location = df["Area Of London"].isin(choice)
     st.dataframe(df[mask_location])
 
+    """
     Type = []
     for i in df["Cafe Type"]:
         for j in i:
             if j not in Type:
                 Type.append(j)
+    """
+    Type = df["Cafe Type"].unique()
     choice_cafe_type = st.multiselect("Select the type of Cafe", Type)
     mask_cafe_type = df["Cafe Type"].isin(choice_cafe_type)
     st.dataframe(df[mask_cafe_type])
