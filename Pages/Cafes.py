@@ -48,9 +48,9 @@ def app():
     st.dataframe(df[mask_cafe_type])
 
     st.dataframe(df[mask_cafe_type])
-    st.markdown("""Still trying to solve this problem""")
+    st.error("Still trying to solve this problem")
 
-    st.markdown("""Also need to make one for the amenities""")
+    st.error("Also need to make one for the amenities")
 
     st.header("Plots")
 
