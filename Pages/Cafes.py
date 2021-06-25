@@ -44,7 +44,27 @@ def app():
             if j not in Type:
                 Type.append(j)
     choice_cafe_type = st.multiselect("Select the type of Cafe", Type)
-    mask_cafe_type = df["Cafe Type"].isin(choice_cafe_type)
+    for element in df["Cafe Type"]:
+        for value in element:
+            if value in choice_cafe_type:
+                mask_cafe_type = df["Cafe Type"]
+
     st.dataframe(df[mask_cafe_type])
+    st.markdown("""Still trying to solve this problem""")
+
+    st.markdown("""Also need to make one for the amenities""")
 
     st.header("Plots")
+
+    st.markdown("""
+    Do a map graph showing all cafes in each area of london
+    - Which areas of london have the most cafes?
+    
+    Do a graph on areas of london that are most costly
+    - Why is this?
+    - Does this mean that they get more customers?/Are the better rated than cheaper areas?
+    
+    Do a graph on most common amenities
+    - Does more amenities have an affect on the rating/number of reviews
+    - 
+    """)

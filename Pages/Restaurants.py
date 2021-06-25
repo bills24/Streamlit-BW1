@@ -44,7 +44,7 @@ def app():
         )
         st.pyplot()
 
-    st.subheader("Restaurant-London")
+    st.subheader("Jointplot of number of reviews against ratings")
 
     if st.button("Jointplot Graph"):
         st.write(
@@ -53,7 +53,7 @@ def app():
         )
         st.pyplot()
 
-    st.subheader("Restaurant-London")
+    st.subheader("")
 
     if st.button("Swarmplot Graph!"):
         st.write(
