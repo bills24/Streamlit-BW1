@@ -6,7 +6,9 @@ def app():
     st.markdown(
         """## Team London
         - Add Description of our team
-        - Add image of london"""
+        - Add image of london
+        - Add a little insight of our data
+        - Need to explain graphs and what information we got from them"""
     )
 
     st.markdown("### Members:")

@@ -44,10 +44,8 @@ def app():
             if j not in Type:
                 Type.append(j)
     choice_cafe_type = st.multiselect("Select the type of Cafe", Type)
-    for element in df["Cafe Type"]:
-        for value in element:
-            if value in choice_cafe_type:
-                mask_cafe_type = df["Cafe Type"]
+    mask_cafe_type = df["Cafe Type"].isin(choice_cafe_type)
+    st.dataframe(df[mask_cafe_type])
 
     st.dataframe(df[mask_cafe_type])
     st.markdown("""Still trying to solve this problem""")
