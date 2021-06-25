@@ -17,4 +17,4 @@ def app():
     elif st.button("Gozal Henggardhani"):
         webbrowser.open_new_tab("")
     elif st.button("Bilal Hussain"):
-        webbrowser.open_new_tab("")
+        webbrowser.open_new_tab("https://www.linkedin.com/in/bilal-hussain-546a1a20b/")

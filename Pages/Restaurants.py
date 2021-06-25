@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import pandas as pd
 import seaborn as sns
-
+import time
 
 def app():
     st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -10,6 +10,8 @@ def app():
 
     st.header("DataFrame")
     df = pd.read_excel("LondonRestaurants.xlsx", index_col=0)
+
+
 
     if st.button("Click to see full dataframe"):
         st.dataframe(df)
@@ -34,37 +36,34 @@ def app():
 
     st.header("Plots")
 
-    st.subheader("Swarmplot")
-
-    st.write(
-        sns.swarmplot(data=df, x="Type_of_cuisine", y='Number_of_Reviews', hue='Price_range')
-    )
-    st.pyplot()
-
     st.subheader("Countplot of price ranges for pubs ratings")
 
-    st.write(
-        sns.countplot(data=df, x="Ratings", hue='Price_range')
-    )
-    st.pyplot()
+    if st.button("Counterplot Graph"):
+        st.write(
+            sns.countplot(data=df, x="Ratings", hue='Price_range')
+        )
+        st.pyplot()
 
     st.subheader("Restaurant-London")
 
-    st.write(
-        sns.jointplot(data=df, x='Ratings', y='Number_of_Reviews', height=8, kind='reg'),
-        sns.set(font_scale=1.5)
-    )
-    st.pyplot()
+    if st.button("Jointplot Graph"):
+        st.write(
+            sns.jointplot(data=df, x='Ratings', y='Number_of_Reviews', height=8, kind='reg'),
+            sns.set(font_scale=1.5)
+        )
+        st.pyplot()
 
     st.subheader("Restaurant-London")
 
-    st.write(
-        sns.swarmplot(data= df, x ="Ratings",y = 'Number_of_Reviews', hue= 'Price_range'),
-    )
-    st.pyplot()
+    if st.button("Swarmplot Graph!"):
+        st.write(
+            sns.swarmplot(data= df, x ="Ratings",y = 'Number_of_Reviews', hue= 'Price_range'),
+        )
+        st.pyplot()
 
     st.subheader("Heatmap")
 
-    st.write(
-        sns.heatmap(pd.crosstab(df.Ratings, df.Price_range), annot=True, fmt='d', cmap='Reds', vmax=50)
-    )
+    if st.button("Heatmap Graph!"):
+        st.write(
+            sns.heatmap(pd.crosstab(df.Ratings, df.Price_range), annot=True, fmt='d', cmap='Reds', vmax=50)
+        )

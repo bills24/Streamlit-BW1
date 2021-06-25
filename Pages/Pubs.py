@@ -40,31 +40,31 @@ def app():
     st.header("Plots")
 
     st.subheader("Countplot of price ranges for pubs ratings")
-    st.write(
-        sns.countplot(data=df, x="Pubs_ratings", hue='Pubs_price_range'),
-        sns.set(font_scale=1, palette='viridis')
-    )
-    st.pyplot()
+    if st.button("Countplot Graph"):
+        st.write(
+            sns.countplot(data=df, x="Pubs_ratings", hue='Pubs_price_range'),
+            sns.set(font_scale=1, palette='viridis')
+        )
+        st.pyplot()
 
-    st.subheader("Pubs-london")
-    st.write(
-        sns.jointplot(data = df, x ='Pubs_ratings', y='Pubs_reviews', height =8 , kind ='reg'),
-        sns.set(font_scale=1.5)
-    )
-    st.pyplot()
+    st.subheader("Pubs Ratings Against Reviews")
+    if st.button("Jointplot Graph"):
+        st.write(
+            sns.jointplot(data = df, x ='Pubs_ratings', y='Pubs_reviews', height =8 , kind ='reg'),
+            sns.set(font_scale=1.5)
+        )
+        st.pyplot()
 
-    st.subheader("Pubs-London")
-    st.write(
-        sns.swarmplot(data=df, x="Pubs_ratings", y='Pubs_reviews', hue='Pubs_price_range')
-    )
-    st.pyplot()
+    st.subheader("Swarmplot")
+    if st.button("Swarmplot Graph"):
+        st.write(
+            sns.swarmplot(data=df, x="Pubs_ratings", y='Pubs_reviews', hue='Pubs_price_range')
+        )
+        st.pyplot()
 
     st.subheader("Heatmap")
-    st.write(
-        sns.heatmap(pd.crosstab(df.Pubs_ratings, df.Pubs_price_range), annot=True, fmt='d', cmap='Reds', vmax=50)
-    )
-    st.plotly()
-
-    st.write(
-
-    )
+    if st.button("Heatmap Graph"):
+        st.write(
+            sns.heatmap(pd.crosstab(df.Pubs_ratings, df.Pubs_price_range), annot=True, fmt='d', cmap='Reds', vmax=50)
+        )
+        st.pyplot()
